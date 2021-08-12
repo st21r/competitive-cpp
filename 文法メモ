@@ -1,0 +1,17 @@
+# max
+*max_element(all(a))
+
+# max_index
+distance(a.begin(), max_element(all(a)))
+
+# setに要素が存在するか
+template<typename T>
+bool is_exists(const unordered_set<T> &s, const T val) {
+    return s.find(val) != s.end();
+}
+
+# 構造体（クラス）初期化
+struct Main {
+    int a;
+    Main(int a) : a(a) {}
+}
