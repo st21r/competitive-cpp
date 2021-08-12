@@ -26,8 +26,10 @@ using ll = long long;
 using pi = pair<int, int>;
 using pl = pair<ll, ll>;
 using vi = vector<int>;
+using vpi = vector<pi>;
 using vvi = vector<vi>;
 using vl = vector<ll>;
+using vpl = vector<pl>;
 using vvl = vector<vl>;
 
 #define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
@@ -78,7 +80,7 @@ template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1
 #pragma endregion
 
 void solve() {
-
+    
 }
 
 int main() {
