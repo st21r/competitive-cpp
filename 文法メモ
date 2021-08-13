@@ -1,8 +1,20 @@
-# max
-*max_element(all(a))
+# iterator関連
+値を取得: *it
+indexを取得: distance(a.begin(), it);
+加算: it++; it += x;
+使い道:
+    max(min)_element
+    lower_bound
+    set::find()
 
-# max_index
-distance(a.begin(), max_element(all(a)))
+# lower_bound
+指定した値以上の中の一番小さいイテレーターを返す
+auto it = lower_bound(all(a), x);
+
+# priority_queue
+そのまま宣言すると大きい数値が優先される
+逆にしたい場合:
+priority_queue<int, vi, greater<int>> pq;
 
 # setに要素が存在するか
 template<typename T>

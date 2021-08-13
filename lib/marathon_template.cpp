@@ -73,48 +73,51 @@ inline void dump(const T &t, const U &...u) {
 template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
 
-struct Timer {
-    static const uint64_t CYCLES_PER_SEC = 3e9;
-    uint64_t start;
-  
-    Timer() : start{} { reset(); }
-  
-    void reset() { start = get_cycle(); }
-  
-    inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
+namespace util {
+    struct Timer {
+        static const uint64_t CYCLES_PER_SEC = 3e9;
+        uint64_t start;
+    
+        Timer() : start{} { reset(); }
+    
+        void reset() { start = get_cycle(); }
+    
+        inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
 
-private:
-    inline uint64_t get_cycle() const {
-        unsigned low, high;
-        __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
-        return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
-    }
-};
+    private:
+        inline uint64_t get_cycle() const {
+            unsigned low, high;
+            __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
+            return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
+        }
+    };
 
-class XorShift {
-    unsigned x, y, z, w; 
-public:    
-    XorShift() {
-        x = 123456789;
-        y = 362436069;
-        z = 521288629;
-        w = 88675123;
-    }
-    inline unsigned next() {
-        unsigned t = x ^ (x << 11);
-        x = y; y = z; z = w;
-        return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));
-    }
-    unsigned nextInt(int n) {
-        return next() % n;
-    }
-    unsigned nextInt(int l, int r) {
-        return l + (next() % (r - l));
-    }
-    double nextDouble() {
-        return next() / 4294967295.0;
-    }
-};
+    class XorShift {
+        unsigned x, y, z, w; 
+    public:    
+        XorShift() {
+            x = 123456789;
+            y = 362436069;
+            z = 521288629;
+            w = 88675123;
+        }
+        inline unsigned next() {
+            unsigned t = x ^ (x << 11);
+            x = y; y = z; z = w;
+            return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));
+        }
+        unsigned nextInt(int n) {
+            return next() % n;
+        }
+        unsigned nextInt(int l, int r) {
+            return l + (next() % (r - l));
+        }
+        double nextDouble() {
+            return next() / 4294967295.0;
+        }
+    };
+}
+
 #pragma endregion
 
 void init() {

@@ -54,5 +54,4 @@ struct ModInt {
     }
     static int get_mod() { return mod; }
 };
-
-//using mint = ModInt<MOD>;
+using mint = ModInt<MOD>;
