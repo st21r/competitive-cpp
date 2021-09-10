@@ -25,11 +25,15 @@ using namespace std;
 using ll = long long;
 using pi = pair<int, int>;
 using pl = pair<ll, ll>;
+using ti = tuple<int, int, int>;
+using tl = tuple<ll, ll, ll>;
 using vi = vector<int>;
 using vpi = vector<pi>;
+using vti = vector<ti>;
 using vvi = vector<vi>;
 using vl = vector<ll>;
 using vpl = vector<pl>;
+using vtl = vector<tl>;
 using vvl = vector<vl>;
 
 #define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
@@ -90,3 +94,4 @@ int main() {
     solve();
     return 0;
 }
+
