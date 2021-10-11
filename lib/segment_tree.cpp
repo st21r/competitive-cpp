@@ -1,27 +1,27 @@
+template <typename T>
 class SegmentTree {
-    const ll IDE = LINF;
-    inline ll f(ll x, ll y) {
+    inline T f(T x, T y) {
         return min(x, y);
     }
     
-    int n;
-    vl data;
+    vector<T> data;
 public:
-    SegmentTree(int size) {
+    int n;
+    T init_val;
+    SegmentTree(int size, T ide_ele=(ll)1e18) : init_val(ide_ele) {
         n = 1;
         while (n < size) n <<= 1;
-        data.assign(2*n, IDE);
+        data.assign(2*n, init_val);
     }
-
-    void build(vl a) {
-        rep(i, len(data)) {
+    void build(vector<T> &a) {
+        rep(i, (int)a.size()) {
             data[n+i] = a[i];
         }
-        rrep(i, n) {
+        for (int i = n-1; i >= 0; i--) {
             data[i] = f(data[i*2], data[i*2+1]);
         }
     }
-    void update(int i, ll x) {
+    void update(int i, T x) {
         i += n;
         data[i] = x;
         while (i > 1) {
@@ -29,9 +29,9 @@ public:
             data[i] = f(data[i*2], data[i*2+1]);
         }
     }
-    ll query(int l, int r) {
+    T query(int l, int r) {
         l += n; r += n;
-        ll res = IDE;
+        T res = init_val;
         while (l < r) {
             if (l & 1) {
                 res = f(res, data[l]);
@@ -44,7 +44,5 @@ public:
         }
         return res;
     }
-    ll get(int i) {
-        return data[i+n];
-    }
+    const T &operator [] (size_t i) const { return data[i+n]; }
 };

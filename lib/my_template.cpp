@@ -44,7 +44,6 @@ using vvl = vector<vl>;
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
 #define sum(a) accumulate(all(a), 0)
-#define uni(a) (a).erase(unique(all(a)), (a).end());
 #define elif else if
 
 constexpr int MOD = 1e9+7;
