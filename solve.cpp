@@ -1,18 +1,53 @@
-#include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < n; i++)
-#define all(a) a.begin(), a.end()
-#define len(a) (int)a.size()
+#pragma region my_template
+#include <algorithm>
+#include <bitset>
+#include <cassert>
+#include <cmath>
+#include <deque>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <iterator>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <tuple>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
+
 using namespace std;
 using ll = long long;
-
 using pi = pair<int, int>;
 using pl = pair<ll, ll>;
+using ti = tuple<int, int, int>;
+using tl = tuple<ll, ll, ll>;
 using vi = vector<int>;
 using vpi = vector<pi>;
+using vti = vector<ti>;
 using vvi = vector<vi>;
 using vl = vector<ll>;
 using vpl = vector<pl>;
+using vtl = vector<tl>;
 using vvl = vector<vl>;
+
+#define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
+#define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
+#define rep(i, n) range(i, 0, n)
+#define rrep(i, n) rrange(i, 0, n)
+#define len(a) ((int)(a).size())
+#define all(a) (a).begin(), (a).end()
+#define rall(a) (a).rbegin(), (a).rend()
+#define sum(a) accumulate(all(a), 0)
+#define elif else if
+
+constexpr int MOD = 1e9+7;
+//constexpr int MOD = 998244353;
 constexpr int INF = 1e9;
 constexpr ll LINF = 1e18;
 
@@ -43,39 +78,19 @@ inline void print(const T &t, const U &...u) {
     if (sizeof...(u)) cout << " ";
     print(u...);
 }
+template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
+template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
+#pragma endregion
 
-using Graph = vector<vpi>;
-vl dijkstra(const Graph &g, int s) {
-    vl d(len(g), LINF);
-    priority_queue<pl, vpl, greater<pl>> q;
-    d[s] = 0;
-    q.emplace(make_pair(0, s));
-    while (!q.empty()) {
-        auto [dist, v] = q.top(); q.pop();
-        if (d[v] < dist) continue;
-        for (auto &[nv, cost]: g[v]) {
-            if (d[nv] > d[v] + cost) {
-                d[nv] = d[v] + cost;
-                q.emplace(make_pair(d[nv], nv));
-            }
-        }
-    }
-    return d;
+void solve() {
+    print(0);
 }
 
-
 int main() {
-    int n, m, s; cin >> n >> m >> s;
-    Graph g(n);
-    rep(_, m) {
-        int a, b, c; cin >> a >> b >> c;
-        g[a].push_back({b, c});
-    }
-    vl dist = dijkstra(g, s);
-    
-    rep(i, n) {
-        if (dist[i] == LINF) cout << "INF" << endl;
-        else cout << dist[i] << endl;
-    }
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    //cout << fixed << setprecision(15);
+    solve();
+    return 0;
 }
 
