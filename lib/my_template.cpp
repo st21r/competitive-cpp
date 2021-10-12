@@ -51,35 +51,39 @@ constexpr int MOD = 1e9+7;
 constexpr int INF = 1e9;
 constexpr ll LINF = 1e18;
 
-template<typename T>
-istream &operator >> (istream &in, vector<T> &a){
-    for(T &x: a) in >> x;
-    return in;
-}
-template<typename T, typename U>
-istream &operator >> (istream &in, pair<T, U> &a){
-    in >> a.first >> a.second;
-    return in;
-}
-template<typename T>
-ostream &operator << (ostream &out, const vector<T> &a) {
-    rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
-    return out;
-}
-template<typename T, typename U>
-ostream &operator << (ostream &out, const pair<T, U> &a){
-    out << a.first << " " << a.second;
-    return out;
-}
-inline void print() { cout << "\n"; }
-template <typename T, typename ...U>
-inline void print(const T &t, const U &...u) {
-    cout << t;
-    if (sizeof...(u)) cout << " ";
-    print(u...);
-}
 template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
+
+namespace io {
+    template<typename T>
+    istream &operator >> (istream &in, vector<T> &a){
+        for(T &x: a) in >> x;
+        return in;
+    }
+    template<typename T, typename U>
+    istream &operator >> (istream &in, pair<T, U> &a){
+        in >> a.first >> a.second;
+        return in;
+    }
+    template<typename T>
+    ostream &operator << (ostream &out, const vector<T> &a) {
+        rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
+        return out;
+    }
+    template<typename T, typename U>
+    ostream &operator << (ostream &out, const pair<T, U> &a){
+        out << a.first << " " << a.second;
+        return out;
+    }
+    inline void print() { cout << "\n"; }
+    template <typename T, typename ...U>
+    inline void print(const T &t, const U &...u) {
+        cout << t;
+        if (sizeof...(u)) cout << " ";
+        print(u...);
+    }
+}
+using namespace io;
 #pragma endregion
 
 void solve() {
