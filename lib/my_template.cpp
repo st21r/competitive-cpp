@@ -46,14 +46,6 @@ using vvl = vector<vl>;
 #define sum(a) accumulate(all(a), 0)
 #define elif else if
 
-constexpr int MOD = 1e9+7;
-//constexpr int MOD = 998244353;
-constexpr int INF = 1e9;
-constexpr ll LINF = 1e18;
-
-template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
-template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
-
 namespace io {
     template<typename T>
     istream &operator >> (istream &in, vector<T> &a){
@@ -84,6 +76,15 @@ namespace io {
     }
 }
 using namespace io;
+
+template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
+template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
+
+constexpr int INF = 1e9;
+constexpr ll LINF = 1e18;
+constexpr int MOD = 1e9+7;
+//constexpr int MOD = 998244353;
+
 #pragma endregion
 
 void solve() {
