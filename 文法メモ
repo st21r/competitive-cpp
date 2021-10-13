@@ -11,6 +11,10 @@ indexを取得: distance(a.begin(), it);
 指定した値以上の中の一番小さいイテレーターを返す
 auto it = lower_bound(all(a), x);
 
+# unique
+vectorの重複を削除する
+vals.erase(unique(vals.begin(), vals.end()), vals.end());
+
 # priority_queue
 そのまま宣言すると大きい数値が優先される
 逆にしたい場合:

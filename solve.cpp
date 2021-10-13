@@ -43,7 +43,6 @@ using vvl = vector<vl>;
 #define len(a) ((int)(a).size())
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
-#define sum(a) accumulate(all(a), 0)
 #define elif else if
 
 namespace io {

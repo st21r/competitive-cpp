@@ -10,5 +10,13 @@
     "arr4": {
         "prefix": "arr4",
         "body": "vector<pi> arr4 = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};"
+    },
+    "unique": {
+        "prefix": "uni",
+        "body": "${1:s}.erase(unique(all(${1:s}), ${1:s}.end());"
+    },
+    "vector sum": {
+        "prefix": "vecsum",
+        "body": "accumulate(all(${1:s}), 0)"
     }
 }
