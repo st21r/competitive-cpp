@@ -20,9 +20,12 @@ vals.erase(unique(vals.begin(), vals.end()), vals.end());
 逆にしたい場合:
 priority_queue<int, vi, greater<int>> pq;
 
+# mapに要素が存在するか
+if (m.count(key) != 0)
+
 # setに要素が存在するか
 template<typename T>
-bool is_exists(const unordered_set<T> &s, const T val) {
+bool is_exists(const set<T> &s, const T val) {
     return s.find(val) != s.end();
 }
 
