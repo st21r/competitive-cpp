@@ -1,7 +1,7 @@
 # iterator関連
 値を取得: *it
 indexを取得: distance(a.begin(), it);
-加算: it++; it += x;
+加算: it++ / it += x
 使い道:
     max(min)_element
     lower_bound
@@ -20,13 +20,17 @@ vals.erase(unique(vals.begin(), vals.end()), vals.end());
 逆にしたい場合:
 priority_queue<int, vi, greater<int>> pq;
 
-# mapに要素が存在するか
-if (m.count(key) != 0)
-
 # setに要素が存在するか
 template<typename T>
-bool is_exists(const set<T> &s, const T val) {
+bool is_exists(const unordered_set<T> &s, const T val) {
     return s.find(val) != s.end();
+}
+
+# ゼロ埋め関数　書式設定は保持されるらしいので注意
+string zerofill(int num, int digit) {
+	ostringstream ss;
+	ss << setw(digit) << setfill('0') << num;
+	return ss.str();
 }
 
 # 構造体（クラス）初期化
