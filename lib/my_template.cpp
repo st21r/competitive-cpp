@@ -31,10 +31,12 @@ using vi = vector<int>;
 using vpi = vector<pi>;
 using vti = vector<ti>;
 using vvi = vector<vi>;
+using usi = unordered_set<int>;
 using vl = vector<ll>;
 using vpl = vector<pl>;
 using vtl = vector<tl>;
 using vvl = vector<vl>;
+using usl = unordered_set<ll>;
 
 #define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
 #define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
@@ -47,24 +49,36 @@ using vvl = vector<vl>;
 #define elif else if
 
 namespace io {
-    template<typename T>
-    istream &operator >> (istream &in, vector<T> &a){
-        for(T &x: a) in >> x;
-        return in;
-    }
     template<typename T, typename U>
     istream &operator >> (istream &in, pair<T, U> &a){
         in >> a.first >> a.second;
         return in;
     }
     template<typename T>
-    ostream &operator << (ostream &out, const vector<T> &a) {
-        rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
-        return out;
+    istream &operator >> (istream &in, vector<T> &a){
+        for(T &x: a) in >> x;
+        return in;
     }
     template<typename T, typename U>
     ostream &operator << (ostream &out, const pair<T, U> &a){
         out << a.first << " " << a.second;
+        return out;
+    }
+    template<typename T>
+    ostream &operator << (ostream &out, const vector<T> &a) {
+        rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
+        return out;
+    }
+    template<typename T>
+    ostream &operator << (ostream &out, const unordered_set<T> &a) {
+        int i = 0;
+        for (const T &x: a) { out << x << (i == len(a)-1 ? "" : " "); i++; }
+        return out;
+    }
+    template<typename T>
+    ostream &operator << (ostream &out, const set<T> &a) {
+        int i = 0;
+        for (const T &x: a) { out << x << (i == len(a)-1 ? "" : " "); i++; }
         return out;
     }
     inline void print() { cout << "\n"; }
