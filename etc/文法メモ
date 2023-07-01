@@ -1,40 +1,21 @@
-# iterator関連
-値を取得: *it
-indexを取得: distance(a.begin(), it);
-加算: it++ / it += x
-使い道:
-    max(min)_element
-    lower_bound
-    set::find()
+// イテレータのindexを取得: distance(a.begin(), it);
 
-# lower_bound
-指定した値以上の中の一番小さいイテレーターを返す
+// lower_bound
+// 指定した値以上の中の一番小さいイテレータを返す
 auto it = lower_bound(all(a), x);
 
-# unique
-vectorの重複を削除する
+// unique
+// vectorの重複を削除する
 vals.erase(unique(vals.begin(), vals.end()), vals.end());
 
-# priority_queue
-そのまま宣言すると大きい数値が優先される
-逆にしたい場合:
+// priority_queue
+// そのまま宣言すると大きい数値が優先される
+// 逆にしたい場合:
 priority_queue<int, vi, greater<int>> pq;
 
-# setに要素が存在するか
-template<typename T>
-bool is_exists(const unordered_set<T> &s, const T val) {
-    return s.find(val) != s.end();
-}
-
-# ゼロ埋め関数　書式設定は保持されるらしいので注意
+// ゼロ埋め関数 書式設定は保持されるらしいので注意
 string zerofill(int num, int digit) {
 	ostringstream ss;
 	ss << setw(digit) << setfill('0') << num;
 	return ss.str();
-}
-
-# 構造体（クラス）初期化
-struct Main {
-    int a;
-    Main(int a) : a(a) {}
 }
