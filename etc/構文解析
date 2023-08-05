@@ -1,0 +1,53 @@
+struct Parser {
+    using State = string::const_iterator;
+    
+    int expr(State &it) {
+        int res = term(it);
+        while(true) {
+            if (*it == '+') {
+                it++;
+                res += term(it);
+            } else if (*it == '-') {
+                it++;
+                res -= term(it);
+            } else break;
+        }
+        return res;
+    }
+
+    int term(State &it) {
+        int res = factor(it);
+        while (true) {
+            if (*it == '*') {
+                it++;
+                res *= factor(it);
+            } else if (*it == '/') {
+                it++;
+                res /= factor(it);
+            } else break;
+        }
+        return res;
+    }
+
+    int number(State &it) {
+        int res = 0;
+        while (isdigit(*it)) {
+            res *= 10;
+            res += *it - '0';
+            it++;
+        }
+        return res;
+    }
+
+    int factor(State &it) {
+        int res = 0;
+        if (*it == '(') {
+            it++;
+            res = expr(it);
+            it++;
+        } else {
+            res = number(it);
+        }
+        return res;
+    }
+};
