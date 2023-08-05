@@ -42,10 +42,12 @@ using usl = unordered_set<ll>;
 #define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
 #define rep(i, n) range(i, 0, n)
 #define rrep(i, n) rrange(i, 0, n)
-#define len(a) ((int)(a).size())
+#define len(a) (int)(a).size()
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
-#define sum(a) accumulate(all(a), 0)
+#define sum(a) accumulate(all(a), (ll)0)
+#define bg begin
+#define ed end
 #define elif else if
  
 namespace io {
@@ -87,7 +89,19 @@ namespace io {
         return out;
     }
     template<typename T>
+    ostream &operator << (ostream &out, const set<T, greater<T>> &a) {
+        int i = 0;
+        for (const T &x: a) { out << x << (i == len(a)-1 ? "" : " "); i++; }
+        return out;
+    }
+    template<typename T>
     ostream &operator << (ostream &out, const multiset<T> &a) {
+        int i = 0;
+        for (const T &x: a) { out << x << (i == len(a)-1 ? "" : " "); i++; }
+        return out;
+    }
+    template<typename T>
+    ostream &operator << (ostream &out, const multiset<T, greater<T>> &a) {
         int i = 0;
         for (const T &x: a) { out << x << (i == len(a)-1 ? "" : " "); i++; }
         return out;
@@ -109,14 +123,22 @@ namespace io {
 }
 using namespace io;
  
+void solve();
+template<typename T> pair<T, int> vecmax(const vector<T> &a) {
+    auto it = max_element(all(a));
+    return {*it, (int)distance(a.begin(), it)};
+}
+template<typename T> pair<T, int> vecmin(const vector<T> &a) {
+    auto it = min_element(all(a));
+    return {*it, (int)distance(a.begin(), it)};
+}
 template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
-void solve();
 
 constexpr int INF = 1e9;
 constexpr ll LINF = 1e18;
-constexpr int MOD = 1e9+7;
-//constexpr int MOD = 998244353;
+constexpr int MOD = 998244353;
+//constexpr int MOD = 1e9+7;
 
 int main() {
     cin.tie(0);

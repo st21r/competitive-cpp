@@ -5,7 +5,7 @@
             "type": "shell",
             "label": "Run",
             "command": "sh",
-            "args": ["run.sh"],
+            "args": ["run.sh", "solve.cpp"],
             "group": {
                 "kind": "build",
                 "isDefault": true

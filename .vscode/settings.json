@@ -94,6 +94,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "文法メモ": "cpp",
+        "stacktrace": "cpp"
     }
 }

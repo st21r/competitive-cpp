@@ -9,7 +9,7 @@
     },
     "cumsum2d.cpp": {
         "prefix": "cumsum2d",
-        "body": "class Cumsum2d {\n    int h, w;\n    vvi data;\npublic:\n    Cumsum2d(int h, int w) : h(h), w(w), data(h+1, vi(w+1)) {}\n    void build(vvi &s) {\n        rep(i, h) rep(j, w) {\n            data[i+1][j+1] += data[i][j+1] + data[i+1][j] - data[i][j] + s[i][j];\n        }\n    }\n    int query(int y1, int x1, int y2, int x2) {\n        return data[y2][x2] - data[y1][x2] - data[y2][x1] + data[y1][x1];\n    }\n};\n"
+        "body": "class Cumsum2d {\n    int h, w;\n    vvi data;\npublic:\n    Cumsum2d(int h, int w) : h(h), w(w), data(h+1, vi(w+1)) {}\n    void build(vvi &s) {\n        rep(i, h) rep(j, w) {\n            data[i+1][j+1] += data[i][j+1] + data[i+1][j] - data[i][j] + s[i][j];\n        }\n    }\n    ll query(int y1, int x1, int y2, int x2) {\n        if (y1 > y2 or x1 > x2) return -1;\n        if (y1 < 0 or x1 < 0 or y2 > h or x2 > w) return -1;\n        return data[y2][x2] - data[y1][x2] - data[y2][x1] + data[y1][x1];\n    }\n};"
     },
     "dijkstra.cpp": {
         "prefix": "dijkstra",

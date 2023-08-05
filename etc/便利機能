@@ -1,0 +1,9 @@
+// all_of, any_of
+// pythonのall, anyと同じことができる
+all_of(all(a), [](int x){ return x == 0; })
+any_of(all(a), [](int x){ return x == 0; })
+
+// transform
+// pythonのmapに相当する
+vi a = {3, 1, 4, 1, 5};
+transform(all(a), a.bg(), [](int x){ return x*2; });
