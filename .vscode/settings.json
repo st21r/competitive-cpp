@@ -97,6 +97,15 @@
         "version": "cpp",
         "文法メモ": "cpp",
         "stacktrace": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "barrier": "cpp",
+        "coroutine": "cpp",
+        "expected": "cpp",
+        "source_location": "cpp",
+        "latch": "cpp",
+        "semaphore": "cpp",
+        "spanstream": "cpp",
+        "stdfloat": "cpp",
+        "syncstream": "cpp"
     }
 }

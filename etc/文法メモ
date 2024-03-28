@@ -1,15 +1,11 @@
-// イテレータのindexを取得
-distance(a.begin(), it);
+// unique vector
+sort(all(a)); a.erase(unique(all(a)), a.end());
 
 // lower_bound
 // 指定した値以上の中の一番小さいイテレータを返す
 auto it = lower_bound(all(a), x);
 
-// unique
-// vectorの重複を削除する　事前にソートが必要
-a.erase(unique(all(a)), a.ed());
-
-// priority_queue デフォルトは降順
+// priority_queue デフォルトは降順（大きい要素から取り出す）
 // 昇順の場合:
 priority_queue<int, vi, greater<int>> pq;
 
@@ -17,16 +13,17 @@ priority_queue<int, vi, greater<int>> pq;
 // 降順の場合:
 set<int, greater<int>> s;
 
+
+// ラムダ式
+// [キャプチャ変数](パラメータ変数)
+auto f = [&a](int x) { };
+
 // ゼロ埋め関数 書式設定は保持される
 string zerofill(int num, int digit) {
 	ostringstream ss;
 	ss << setw(digit) << setfill('0') << num;
 	return ss.str();
 }
-
-// ラムダ式
-// [キャプチャ変数](パラメータ変数)
-auto f = [&a](int x) { };
 
 // vector <-> set等の変換
 // コンストラクタにイテレータを指定するだけ

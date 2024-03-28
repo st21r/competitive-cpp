@@ -5,3 +5,4 @@ if [ -e a.out ]; then
     ./a.out < input.txt > output.txt
     rm -f a.out
 fi
+
