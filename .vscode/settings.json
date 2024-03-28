@@ -96,6 +96,7 @@
         "variant": "cpp",
         "version": "cpp",
         "文法メモ": "cpp",
-        "stacktrace": "cpp"
+        "stacktrace": "cpp",
+        "format": "cpp"
     }
 }
