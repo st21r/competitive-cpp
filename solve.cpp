@@ -47,7 +47,6 @@ using usl = unordered_set<ll>;
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
 #define sum(a) accumulate(all(a), 0)
-#define univec(a) sort(all(a)); a.erase(unique(all(a)), a.end())
 #define it2idx(a, it) distance(a.begin(), it)
 #define idx2it(a, idx) next(a.begin(), idx)
 #define elif else if
